@@ -10,7 +10,7 @@ function App() {
   }, []);
   return (
     <>
-      <p>{message}</p>
+      <p className="font-bold text-4xl text-orange-600">{message}</p>
     </>
   );
 }
