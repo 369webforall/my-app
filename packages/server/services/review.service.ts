@@ -3,10 +3,6 @@ import { reviewRepository } from '../repositories/review.repository';
 import { llmClient } from '../llm/client';
 import template from '../llm/prompts/summarize-reviews.txt';
 export const reviewService = {
-  async getReviews(productId: number): Promise<Review[]> {
-    return await reviewRepository.getReviews(productId);
-  },
-
   async summarizeReviews(productId: number): Promise<string> {
     const reviews = await reviewRepository.getReviews(productId, 10);
     const JoinedReviews = reviews.map((r) => r.content).join('\n\n');

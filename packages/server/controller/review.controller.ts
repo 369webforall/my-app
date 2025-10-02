@@ -10,8 +10,13 @@ export const reviewController = {
       return;
     }
 
-    const reviews = await reviewService.getReviews(productId);
-    res.json(reviews);
+    const reviews = await reviewRepository.getReviews(productId);
+    const summary = await reviewRepository.getReviewSummary(productId);
+
+    res.json({
+      summary,
+      reviews,
+    });
   },
   async summarizeReviews(req: Request, res: Response) {
     const productId = Number(req.params.id);

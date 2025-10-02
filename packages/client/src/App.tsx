@@ -1,8 +1,11 @@
-import ChatBot from './components/chat/ChatBot';
+import ReviewList from './components/reviews/ReviewList';
+import 'react-loading-skeleton/dist/skeleton.css';
 function App() {
   return (
     <>
-      <ChatBot />
+      <div className="container mx-auto">
+        <ReviewList productId={2} />
+      </div>
     </>
   );
 }
